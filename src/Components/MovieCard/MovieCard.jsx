@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -7,11 +8,13 @@ import './MovieCard.css';
 const MovieCard = ({ movie, onFavoriteClick, isFavorite }) => {
   return (
     <div className="movie-card">
-      <img
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-        alt={movie.title}
-        className="movie-poster"
-      />
+      <Link to={`/movie/${movie.id}`} className="movie-link">
+        <img
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt={movie.title}
+          className="movie-poster"
+        />
+      </Link>
       <span className="favorite" onClick={() => onFavoriteClick(movie)}>
         {isFavorite ? (
           <FavoriteIcon className="favorite-icon filled" />

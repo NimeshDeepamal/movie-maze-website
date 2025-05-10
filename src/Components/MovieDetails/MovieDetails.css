@@ -1,0 +1,83 @@
+.movie-bg {
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .movie-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .movie-box {
+    background-image: url(https://image.tmdb.org/t/p/original${movieDetails.backdrop_path});
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 900px;
+    width: 100%;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  }
+  
+  .movie-box h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #ffe400;
+  }
+  
+  .sub-info {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 20px;
+    color: #ffd000;
+  }
+  
+  .genre {
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+  
+  .overview {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  .trailer h2 {
+    margin-bottom: 10px;
+    color: #ff5252;
+  }
+  
+  iframe {
+    border-radius: 10px;
+    max-width: 100%;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .movie-box {
+      padding: 20px;
+    }
+  
+    .movie-box h1 {
+      font-size: 2rem;
+    }
+  
+    .sub-info {
+      font-size: 1rem;
+      flex-direction: column;
+    }
+  
+    iframe {
+      height: 200px;
+    }
+  }
+  
