@@ -11,7 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom'; // ✅ Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import DarkMode from '../DarkMode/DarkMode';
 
 // Define routes with labels and paths
@@ -42,7 +42,17 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'black' }}>
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: 'var(--body_background)',
+        color: 'var(--body_color)',
+        '[data-theme="light"] &': {
+          backgroundColor: '#ffffff',
+          color: '#000000',
+        },
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -134,7 +144,12 @@ function ResponsiveAppBar() {
                 component={Link}
                 to={page.path}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{
+                  my: 2,
+                  color: 'inherit',
+                  display: 'block',
+                  '[data-theme="light"] &': { color: '#000000' },
+                }}
               >
                 {page.name}
               </Button>
