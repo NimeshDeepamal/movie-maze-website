@@ -25,7 +25,7 @@ const MovieList = ({ type, title }) => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const apiKey = '50c083697496217a8ad3e4c3ee234c27';
+        const apiKey = process.env.REACT_APP_TMDB_API_KEY ;
         const response = await axios.get(`https://api.themoviedb.org/3/movie/${type}`, {
           params: {
             api_key: apiKey,
