@@ -1,99 +1,24 @@
-import * as React from 'react';
-import { CssVarsProvider, useColorScheme, extendTheme } from '@mui/joy/styles';
-import Sheet from '@mui/joy/Sheet';
-import CssBaseline from '@mui/joy/CssBaseline';
-import Typography from '@mui/joy/Typography';
-import FormControl from '@mui/joy/FormControl';
-import FormLabel from '@mui/joy/FormLabel';
-import Input from '@mui/joy/Input';
-import Button from '@mui/joy/Button';
-import Link from '@mui/joy/Link';
-import Select from '@mui/joy/Select';
-import Option from '@mui/joy/Option';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './LoginPage.css';
 
-// Define a complete theme
-const theme = extendTheme({
-  palette: {
-    primary: {
-      main: '#6200ea',
-    },
-  },
-  colorSchemes: {
-    light: {
-      palette: {
-        primary: {
-          main: '#6200ea',
-        },
-      },
-    },
-    dark: {
-      palette: {
-        primary: {
-          main: '#b388ff',
-        },
-      },
-    },
-  },
-  typography: {
-    h4: {
-      fontSize: '32px',
-    },
-    body1: {
-      fontSize: '16px',
-    },
-    'body-sm': {
-      fontSize: '14px',
-    },
-    'body-md': {
-      fontSize: '16px',
-    },
-    'body-lg': {
-      fontSize: '18px',
-    },
-    button: {
-      fontSize: '16px',
-    },
-  },
-});
-
-function ModeToggle() {
-  const { mode, setMode } = useColorScheme();
-  const [mounted, setMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return (
-      <Button variant="soft" sx={{ fontSize: '16px' }}>
-        Change mode
-      </Button>
-    );
-  }
-
-  return (
-    <Select
-      variant="soft"
-      value={mode}
-      onChange={(event, newMode) => {
-        setMode(newMode);
-      }}
-      sx={{ width: 'max-content' }}
-    >
-      <Option value="system">System</Option>
-      <Option value="light">Light</Option>
-      <Option value="dark">Dark</Option>
-    </Select>
-  );
-}
-
-export default function LoginFinal({ setIsLoggedIn }) {
+export default function LoginPage({ setIsLoggedIn }) {
   const navigate = useNavigate();
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [error, setError] = React.useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [mode, setMode] = useState('system');
+
+  // Handle theme mode (light/dark/system)
+  useEffect(() => {
+    const root = document.documentElement;
+    if (mode === 'system') {
+      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      root.setAttribute('data-theme', prefersLight ? 'light' : 'dark');
+    } else {
+      root.setAttribute('data-theme', mode);
+    }
+  }, [mode]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -107,69 +32,47 @@ export default function LoginFinal({ setIsLoggedIn }) {
   };
 
   return (
-    <main>
-      <CssVarsProvider theme={theme}>
-        <ModeToggle />
-        <CssBaseline />
-        <Sheet
-          sx={{
-            width: 300,
-            mx: 'auto',
-            my: 4,
-            py: 3,
-            px: 2,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 2,
-            borderRadius: 'sm',
-            boxShadow: 'md',
-          }}
-          variant="outlined"
-        >
-          <div>
-            <Typography level="h4" component="h1">
-              <b>Welcome!</b>
-            </Typography>
-            <Typography level="body-sm">Sign in to continue.</Typography>
+    <main className="login-main">
+      <div className="login-card">
+        <div className="mode-toggle">
+          <select value={mode} onChange={(e) => setMode(e.target.value)}>
+            <option value="system">System</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+        <h1>Welcome!</h1>
+        <p className="subtitle">Sign in to continue.</p>
+        {error && <p className="error">{error}</p>}
+        <form onSubmit={handleLogin}>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="johndoe@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
-          {error && (
-            <Typography level="body-sm" color="danger">
-              {error}
-            </Typography>
-          )}
-          <form onSubmit={handleLogin}>
-            <FormControl>
-              <FormLabel>Email</FormLabel>
-              <Input
-                name="email"
-                type="email"
-                placeholder="johndoe@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Password</FormLabel>
-              <Input
-                name="password"
-                type="password"
-                placeholder="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </FormControl>
-            <Button type="submit" sx={{ mt: 1, fontSize: '16px' }}>
-              Log in
-            </Button>
-          </form>
-          <Typography
-            endDecorator={<Link href="/sign-up">Sign up</Link>}
-            sx={{ fontSize: '14px', alignSelf: 'center' }}
-          >
-            Don't have an account?
-          </Typography>
-        </Sheet>
-      </CssVarsProvider>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              placeholder="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <button type="submit">Log in</button>
+        </form>
+        <p className="signup">
+          Don't have an account? <a href="/sign-up">Sign up</a>
+        </p>
+      </div>
     </main>
   );
 }
