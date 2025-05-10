@@ -1,14 +1,17 @@
 import React from 'react'
 import Hero from '../Components/Hero/Hero'
-import Popular from '../Components/Popular/Popular';
 import MovieList from '../Components/MovieList/MovieList';
+import './Home.css'
 
 const Home = () => {
   return (
     <div className='home'>
       <Hero />
-      <Popular />
-      <MovieList />
+      <h1>Movies</h1>
+      <MovieList type={"popular"} title={"Popular"}/>
+      <MovieList type={"now_playing"} title={"Now Playing"}/>
+      <MovieList type={"upcoming"} title={"Upcoming"}/>
+      <MovieList type={"top_rated"} title={"Top Rated"}/>
     </div>
   )
 }
