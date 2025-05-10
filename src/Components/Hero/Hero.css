@@ -49,6 +49,7 @@
     height: 40px;
     border-radius: 20px;
     background: linear-gradient(to right, #747474, #f4f4f4);
+    color: var(--body_color);
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
