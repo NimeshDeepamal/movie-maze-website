@@ -23,7 +23,7 @@
     max-width: 900px;
     width: 100%;
     color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   }
   
   .movie-box h1 {
@@ -61,6 +61,106 @@
     max-width: 100%;
   }
   
+  /* Cast Section */
+  .cast-section {
+    margin-top: 40px;
+  }
+  
+  .cast-section h2 {
+    color: #00e5ff;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .cast-grid {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    justify-content: center;
+  }
+  
+  .cast-card {
+    background-color: rgba(126, 126, 126, 0.08);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    width: 140px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .cast-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  }
+  
+  .cast-card img {
+    width: 100%;
+    border-radius: 8px;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .cast-info {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: var(--body_color);
+  }
+  
+  .cast-info strong {
+    font-weight: bold;
+  }
+  
+  /* Recommended Section */
+  .recommend-section {
+    margin-top: 50px;
+  }
+  
+  .recommend-section h2 {
+    color: #a3ff12;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .recommend-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    justify-content: center;
+  }
+  
+  .recommend-card {
+    width: 180px;
+    flex-shrink: 0;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .recommend-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  }
+  
+  .recommend-card img {
+    width: 100%;
+    border-radius: 8px;
+    height: 270px;
+    object-fit: cover;
+  }
+  
+  .recommend-title {
+    margin-top: 8px;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: bold;
+  }
+  
   /* Responsive */
   @media (max-width: 768px) {
     .movie-box {
@@ -78,6 +178,21 @@
   
     iframe {
       height: 200px;
+    }
+  
+    .cast-card,
+    .recommend-card {
+      width: 120px;
+    }
+  
+    .cast-card img,
+    .recommend-card img {
+      height: 160px;
+    }
+  
+    .cast-info,
+    .recommend-title {
+      font-size: 0.8rem;
     }
   }
   
