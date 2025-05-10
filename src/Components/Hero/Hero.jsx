@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './Hero.css';
-import Background from '../Assets/Hero_background.jpg';
 import ImageSlider from '../ImageSlider/ImageSlider';
 import axios from 'axios';
 
