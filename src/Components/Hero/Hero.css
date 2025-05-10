@@ -1,0 +1,45 @@
+.hero{
+    position: relative;
+    width: 100%;
+    height: 91vh;
+    overflow: hidden; /* hides any blur overflow */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+.blur-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('../Assets//Hero_background.jpg') center/cover no-repeat;
+    z-index: 0;
+    border: none;
+}
+.left-hero-container {
+    position: relative;
+    z-index: 1;
+    width: 40%;
+    text-align: left;
+    justify-content: center;
+    margin-top: 15%;
+    color: white;
+    padding: 2rem;
+    margin-left: 5px;
+}
+.left-hero-container button{
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    background: linear-gradient(to right, #747474, #f4f4f4);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    border: 2px solid rgb(29, 54, 106);
+}
+.right-hero-container{
+    position: relative;
+    z-index: 1;
+    color: white;
+    padding: 2rem;
+    margin-left: 5px;
+}
