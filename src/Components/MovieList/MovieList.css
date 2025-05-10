@@ -1,0 +1,17 @@
+h1{
+    color: rgb(0, 0, 0);
+    font-size: 50px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+hr{
+    width: 200px;
+    height: 6px;
+    border-radius: 10px;
+    background: #cbcbcb;
+}
+.movie-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
