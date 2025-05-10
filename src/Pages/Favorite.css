@@ -1,0 +1,36 @@
+.favorites-container {
+    padding: 2rem;
+    min-height: 100vh;
+    color: #ffffff;
+  }
+  
+  .favorites-container h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--heading-color);
+  }
+  
+  /* .movie-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  
+  .movie-cards p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #aaa;
+  } */
+  @media (max-width: 600px) {
+    .favorites-container h2 {
+      font-size: 1.8rem;
+    }
+  
+    /* .movie-cards {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: rem;
+    } */
+  }
+    
