@@ -1,4 +1,4 @@
-.movie-card{
+.movie-card {
     width: 200px;
     height: 300px;
     margin: 15px;
@@ -9,47 +9,88 @@
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
     position: relative;
     transition: all 0.2s ease-in-out;
-}
-.movie-card:hover{
+    box-sizing: border-box;
+  }
+  
+  .movie-card:hover {
     transform: scale(1.08);
-}
-.movie-poster{
+  }
+  
+  .movie-poster {
     width: 100%;
     height: 100%;
-}
-.movie-details{
+    object-fit: cover;
+  }
+  
+  .favorite-icon {
+    color: white;
+    transition: color 0.3s ease;
+  }
+  
+  .favorite-icon.filled {
+    color: red;
+  }
+  
+  .favorite {
     position: absolute;
-    top: 0;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+    background-color: rgba(132, 132, 132, 0.9);
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .movie-details {
+    position: absolute;
+    bottom: 0; /* Position the details at the bottom */
     width: 100%;
-    height: 100%;
-    padding: 10px;
-    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+    padding: 10px 10px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end; /* Ensures content is at the bottom */
     opacity: 0;
     transition: all 0.2s ease-in-out;
-}
-.movie-card:hover .movie-details{
+    box-sizing: border-box;
+  }
+  
+  .movie-card:hover .movie-details {
     opacity: 1;
-}
-.movie-details-heading{
+  }
+  
+  .movie-details-heading {
     font-size: 16px;
     color: #ffe400;
-}
-.movie-date-rate{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .movie-date-rate {
     justify-content: space-between;
     font-size: 12px;
     font-weight: 500;
     margin: 5px 0px;
     color: #ffe400;
-}
-.star-emoji{
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  .star-emoji {
     width: 20px;
     height: 20px;
     margin-right: 5px;
-}
-.movie-description{
+  }
+  
+  .movie-description {
     font-size: 12px;
     font-style: italic;
-}
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  
