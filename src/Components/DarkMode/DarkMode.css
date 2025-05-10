@@ -1,0 +1,54 @@
+.dark-mode {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dark-mode-input {
+    opacity: 0;
+    position: absolute;
+  }
+  
+  .dark-mode-lable {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50px;
+    height: 26px;
+    background-color: #939393;
+    border-radius: 50px;
+    position: relative;
+    transition: background-color 0.3s ease-in-out;
+    padding: 0 6px;
+    box-sizing: border-box;
+  }
+  
+  .dark-mode-lable svg {
+    font-size: 18px;
+    color: #fff;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .dark-mode-lable svg:first-child {
+    opacity: 1;
+  }
+  
+  .dark-mode-lable svg:last-child {
+    opacity: 0;
+    position: absolute;
+    right: 6px;
+  }
+  
+  .dark-mode-input:checked + .dark-mode-lable {
+    background-color: #333;
+  }
+  
+  .dark-mode-input:checked + .dark-mode-lable svg:first-child {
+    opacity: 0;
+  }
+  
+  .dark-mode-input:checked + .dark-mode-lable svg:last-child {
+    opacity: 1;
+  }
+  
