@@ -4,6 +4,7 @@ import MovieCard from '../MovieCard/MovieCard';
 import axios from 'axios';
 import SearchBar from '../SearchBar/SearchBar';
 import _ from 'lodash';
+import { useLocation } from 'react-router-dom';
 
 const MovieList = ({ type, title }) => {
   const [movies, setMovies] = useState([]);
@@ -13,34 +14,38 @@ const MovieList = ({ type, title }) => {
   const [sort, setsort] = useState({ by: 'default', order: 'asc' });
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(() => {
+    const storedFavorites = localStorage.getItem('favorites');
+    return storedFavorites ? JSON.parse(storedFavorites) : [];
+  });
 
-  const fetchMovies = async (currentPage = 1) => {
-    try {
-      const apiKey = '50c083697496217a8ad3e4c3ee234c27';
-      const response = await axios.get(`https://api.themoviedb.org/3/movie/${type}`, {
-        params: {
-          api_key: apiKey,
-          language: 'en-US',
-          page: currentPage,
-        },
-      });
+  const location = useLocation(); // Hook to get current location (URL)
 
-      const newMovies = response.data.results;
-      const updatedMovies = currentPage === 1 ? newMovies : [...movies, ...newMovies];
-
-      setMovies(updatedMovies);
-      setHasMore(currentPage < 500);
-    } catch (error) {
-      console.error('Error fetching movies:', error);
-      setfilterMovies([]);
-    }
-  };
-
+  // Fetch movies on type or page change
   useEffect(() => {
-    fetchMovies(page);
-  }, [page]);
+    const fetchMovies = async () => {
+      try {
+        const apiKey = '50c083697496217a8ad3e4c3ee234c27';
+        const response = await axios.get(`https://api.themoviedb.org/3/movie/${type}`, {
+          params: {
+            api_key: apiKey,
+            language: 'en-US',
+            page: page,
+          },
+        });
 
+        const newMovies = response.data.results;
+        setMovies(prevMovies => (page === 1 ? newMovies : [...prevMovies, ...newMovies]));
+        setHasMore(response.data.page < 500); // Prevent more requests after 500 pages
+      } catch (error) {
+        console.error('Error fetching movies:', error);
+      }
+    };
+
+    fetchMovies();
+  }, [type, page, location]); // Add `type` and `location` to trigger fetch on route changes
+
+  // Filter, sort, and search movies
   useEffect(() => {
     let filtered = movies;
 
@@ -84,16 +89,12 @@ const MovieList = ({ type, title }) => {
 
   const handleFavoriteClick = (movie) => {
     const isAlreadyFavorite = favorites.some(fav => fav.id === movie.id);
-    let updatedFavorites;
-  
-    if (isAlreadyFavorite) {
-      updatedFavorites = favorites.filter(fav => fav.id !== movie.id);
-    } else {
-      updatedFavorites = [...favorites, movie];
-    }
-  
+    const updatedFavorites = isAlreadyFavorite
+      ? favorites.filter(fav => fav.id !== movie.id)
+      : [...favorites, movie];
+
     setFavorites(updatedFavorites);
-    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   };
 
   return (
@@ -124,7 +125,7 @@ const MovieList = ({ type, title }) => {
             key={movie.id}
             movie={movie}
             onFavoriteClick={handleFavoriteClick} // Pass function here
-            isFavorite={favorites.some(fav => fav.id === movie.id)}
+            isFavorite={favorites.some(fav => fav.id === movie.id)} // Pass favorite status
           />
         ))}
       </div>
