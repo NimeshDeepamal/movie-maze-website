@@ -1,0 +1,8 @@
+h1{
+    color: var(--heading-color);
+    font-size: 50px;
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+}
