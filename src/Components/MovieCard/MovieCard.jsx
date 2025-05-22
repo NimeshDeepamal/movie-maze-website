@@ -29,7 +29,7 @@ const MovieCard = ({ movie, onFavoriteClick, isFavorite }) => {
           <p>
             <span className="star-emoji">
               <StarBorderIcon />
-            </span>{' '}
+            </span>
             {movie.vote_average}
           </p>
         </div>
