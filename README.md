@@ -1,70 +1,95 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## 🎬 Movie Maze
 
-In the project directory, you can run:
+**Movie Maze** is a responsive movie discovery web application built with **React** and powered by the **TMDb (The Movie Database) API**. It allows users to search for trending films, explore detailed movie data, filter results, and save favorites — all with a smooth, user-friendly interface.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🔗 Live Demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+👉 [View Live Project](https://moviemazebynimesh.netlify.app)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### ✨ Features
 
-### `npm run build`
+* 🔍 **Real-time Search** – Search for your favorite movies with instant results
+* 🎥 **Movie Details** – View cast, release date, genre, trailers, and ratings
+* ❤️ **Favorites** – Save and manage your favorite movies locally (no login required)
+* 🎛️ **Filters** – Filter by genre, year, and rating to refine your discovery
+* 🌗 **Light/Dark Mode** – Toggle between modern UI themes
+* 📦 **Pagination** – Load more movies seamlessly
+* 📱 **Responsive Design** – Mobile-friendly layout for all screen sizes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🛠️ Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Technology  | Description                          |
+| ----------- | ------------------------------------ |
+| React       | Frontend JavaScript framework        |
+| Axios       | API requests                         |
+| Context API | Global state management              |
+| Material-UI | Stylish and responsive UI components |
+| TMDb API    | Movie data source                    |
+| Netlify     | Hosting and deployment               |
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 🚀 Getting Started
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### 🔧 Prerequisites
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Node.js ≥ 14.x
+* TMDb API Key (Get it from [https://www.themoviedb.org](https://www.themoviedb.org))
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### 📥 Installation
 
-## Learn More
+```bash
+git clone https://gitlab.com/your-username/movie-maze.git
+cd movie-maze
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### 🔑 Setup Environment Variables
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Create a `.env` file in the root directory:
 
-### Code Splitting
+```env
+REACT_APP_TMDB_API_KEY=your_tmdb_api_key
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### ▶️ Run the App
 
-### Analyzing the Bundle Size
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The app will start on `http://localhost:3000`.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 📄 License
 
-### Advanced Configuration
+This project is licensed under the [MIT License](LICENSE).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+### 🙌 Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* [TMDb API](https://www.themoviedb.org/documentation/api) – for providing amazing movie data
+* [Material UI](https://mui.com) – for UI components
+* Special thanks to the open source community 💙
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 📬 Contact
+
+**Nimesh Deepamal**
+📧 Email: nimeshdeepamal@gmail.com
+🌐 Portfolio: https://nimeshdeepamal.vercel.app
+
+---
+
