@@ -37,7 +37,7 @@ const Hero = () => {
         <button>Watch More</button>
       </div>
       <div className="right-hero-container">
-        <ImageSlider movies={movies.slice(0, 6)} /> {/* Limit to 6 movies for slider */}
+        <ImageSlider movies={movies.slice(0, 6)} /> 
       </div>
     </div>
   );
