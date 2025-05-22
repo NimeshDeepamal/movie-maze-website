@@ -9,9 +9,6 @@ const Home = () => {
       <Hero />
       <h1>Movies</h1>
       <MovieList type={"popular"} title={"Popular"}/>
-      <MovieList type={"now_playing"} title={"Now Playing"}/>
-      <MovieList type={"upcoming"} title={"Upcoming"}/>
-      <MovieList type={"top_rated"} title={"Top Rated"}/>
     </div>
   )
 }
