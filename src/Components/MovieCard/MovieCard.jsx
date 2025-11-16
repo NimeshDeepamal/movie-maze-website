@@ -5,7 +5,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import './MovieCard.css';
 
-const MovieCard = ({ movie, onFavoriteClick, isFavorite }) => {
+const MovieCard = ({ movie, onFavoriteClick, isFavorite ,isLoggedIn}) => {
   return (
     <div className="movie-card">
       <Link to={`/movie/${movie.id}`} className="movie-link">
