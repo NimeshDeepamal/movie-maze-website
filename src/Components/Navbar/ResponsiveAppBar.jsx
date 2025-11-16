@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,7 +15,6 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import DarkMode from '../DarkMode/DarkMode';
 
-// Define routes with labels and paths
 const pages = [
   { name: 'Home', path: '/' },
   { name: 'Popular', path: '/movies' },
@@ -22,16 +22,22 @@ const pages = [
   { name: 'Favorites', path: '/favorites' }
 ];
 
-const settings = ['Profile', 'Account', 'Logout'];
-
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleOpenUserMenu = (event) => {
+    const isLoggedIn = localStorage.getItem('user') || localStorage.getItem('isLoggedIn');
+
+    if (!isLoggedIn) {
+      navigate('/login');
+      return;
+    }
+
     setAnchorElUser(event.currentTarget);
   };
   const handleCloseNavMenu = () => {
@@ -39,6 +45,20 @@ function ResponsiveAppBar() {
   };
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const handleUserMenuClick = (setting) => {
+    handleCloseUserMenu();
+
+    if (setting === 'Logout') {
+      localStorage.removeItem('user');
+      localStorage.removeItem('isLoggedIn');
+      navigate('/'); 
+    } else if (setting === 'Profile') {
+      navigate('/profile');
+    } else if (setting === 'Account') {
+      navigate('/account');
+    }
   };
 
   return (
@@ -68,6 +88,9 @@ function ResponsiveAppBar() {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              '&:hover': {
+      textDecoration: 'none',       // remove underline on hover
+    },
             }}
           >
             MovieMaze
@@ -89,15 +112,9 @@ function ResponsiveAppBar() {
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
               keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
+              transformOrigin={{ vertical: 'top', horizontal: 'left' }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}
@@ -174,8 +191,8 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+              {['Profile', 'Account', 'Logout'].map((setting) => (
+                <MenuItem key={setting} onClick={() => handleUserMenuClick(setting)}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

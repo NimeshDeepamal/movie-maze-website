@@ -1,0 +1,145 @@
+.login-main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--body_background);
+  }
+  
+  .login-card {
+    width: 300px;
+    padding: 24px;
+    background: var(--body_background);
+    border: 1px solid var(--body_color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  [data-theme="light"] .login-card {
+    background: #ffffff;
+    border-color: #d1d5db;
+  }
+  
+  .mode-toggle {
+    align-self: flex-end;
+  }
+  
+  select {
+    padding: 6px 12px;
+    background: var(--body_background);
+    color: var(--body_color);
+    border: 1px solid var(--body_color);
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  [data-theme="light"] select {
+    background: #ffffff;
+    border-color: #d1d5db;
+  }
+  
+  select:focus {
+    outline: none;
+    border-color: #6200ea;
+  }
+  
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--body_color);
+    margin: 0;
+  }
+  
+  .subtitle {
+    font-size: 14px;
+    color: var(--body_color);
+    opacity: 0.7;
+    margin: 0;
+  }
+  
+  .error {
+    font-size: 14px;
+    color: #ef4444;
+    margin: 0;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--body_color);
+  }
+  
+  input {
+    padding: 10px 12px;
+    border: 1px solid var(--body_color);
+    border-radius: 4px;
+    background: var(--body_background);
+    color: var(--body_color);
+    font-size: 16px;
+  }
+  
+  [data-theme="light"] input {
+    background: #ffffff;
+    border-color: #d1d5db;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #6200ea;
+    box-shadow: 0 0 0 2px rgba(98, 0, 234, 0.2);
+  }
+  
+  button {
+    padding: 10px;
+    background: #6200ea;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  [data-theme="light"] button {
+    background: #6200ea;
+  }
+  
+  button:hover {
+    background: #b388ff;
+  }
+  
+  .signup {
+    text-align: center;
+    font-size: 14px;
+    color: var(--body_color);
+    opacity: 0.7;
+    margin: 0;
+  }
+  
+  a {
+    color: #6200ea;
+    text-decoration: none;
+  }
+  
+  [data-theme="light"] a {
+    color: #6200ea;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }

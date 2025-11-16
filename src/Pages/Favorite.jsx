@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import MovieCard from '../Components/MovieCard/MovieCard';
-import './Favorite.css'
+import './Favorite.css';
+import { useNavigate } from 'react-router-dom';
 
 const FavoritesPage = () => {
   const [favorites, setFavorites] = useState([]);
+  const navigate = useNavigate();
 
   // Load favorites from localStorage
   useEffect(() => {
@@ -11,14 +13,24 @@ const FavoritesPage = () => {
     setFavorites(savedFavorites);
   }, []);
 
+  // Check login status
+  const isLoggedIn = localStorage.getItem("user") || localStorage.getItem("isLoggedIn");
+
   const handleFavoriteClick = (movie) => {
-    const updatedFavorites = favorites.filter(fav => fav.id !== movie.id);
-    if (updatedFavorites.length === favorites.length) {
-      updatedFavorites.push(movie); // Add to favorites if not already present
+
+    if (!isLoggedIn) {
+      navigate("/login");
+      return;
     }
-    
+
+    const updatedFavorites = favorites.filter(fav => fav.id !== movie.id);
+
+    if (updatedFavorites.length === favorites.length) {
+      updatedFavorites.push(movie); // Add if not present
+    }
+
     setFavorites(updatedFavorites);
-    localStorage.setItem('favorites', JSON.stringify(updatedFavorites)); // Update localStorage
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   };
 
   return (
@@ -33,7 +45,7 @@ const FavoritesPage = () => {
               key={movie.id}
               movie={movie}
               onFavoriteClick={handleFavoriteClick}
-              isFavorite={true} // Since we are on the favorites page, it's already a favorite
+              isFavorite={true}
             />
           ))
         ) : (
