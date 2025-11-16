@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './LoginPage.css'; // reuse the same CSS
+import './LoginPage.css'; 
 
 export default function SignupPage({ setIsLoggedIn }) {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ export default function SignupPage({ setIsLoggedIn }) {
   const [error, setError] = useState('');
   const [mode, setMode] = useState('system');
 
-  // Handle theme mode (light/dark/system)
+
   useEffect(() => {
     const root = document.documentElement;
     if (mode === 'system') {

@@ -17,21 +17,22 @@ const FavoritesPage = () => {
   const isLoggedIn = localStorage.getItem("user") || localStorage.getItem("isLoggedIn");
 
   const handleFavoriteClick = (movie) => {
+  if (!isLoggedIn) {
+    navigate("/login");
+    return;
+  }
 
-    if (!isLoggedIn) {
-      navigate("/login");
-      return;
-    }
+  // Proceed with adding/removing favorite
+  const updatedFavorites = favorites.filter(fav => fav.id !== movie.id);
 
-    const updatedFavorites = favorites.filter(fav => fav.id !== movie.id);
+  if (updatedFavorites.length === favorites.length) {
+    updatedFavorites.push(movie); // Add if not present
+  }
 
-    if (updatedFavorites.length === favorites.length) {
-      updatedFavorites.push(movie); // Add if not present
-    }
+  setFavorites(updatedFavorites);
+  localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+};
 
-    setFavorites(updatedFavorites);
-    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-  };
 
   return (
     <section className="movie-list">
