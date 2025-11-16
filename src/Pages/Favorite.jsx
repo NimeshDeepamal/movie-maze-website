@@ -3,7 +3,7 @@ import MovieCard from '../Components/MovieCard/MovieCard';
 import './Favorite.css';
 import { useNavigate } from 'react-router-dom';
 
-const FavoritesPage = () => {
+const FavoritesPage = ({ isLoggedIn }) => { // use prop instead of reading localStorage
   const [favorites, setFavorites] = useState([]);
   const navigate = useNavigate();
 
@@ -13,19 +13,13 @@ const FavoritesPage = () => {
     setFavorites(savedFavorites);
   }, []);
 
-  // Check login status correctly
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-
   const handleFavoriteClick = (movie) => {
     if (!isLoggedIn) {
-      // Redirect to login page if user is not logged in
-      navigate("/login");
+      navigate("/login"); // redirect if not logged in
       return;
     }
 
-    // Add or remove favorite
     const updatedFavorites = favorites.filter(fav => fav.id !== movie.id);
-
     if (updatedFavorites.length === favorites.length) {
       updatedFavorites.push(movie); // Add if not present
     }
