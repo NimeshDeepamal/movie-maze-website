@@ -15,7 +15,11 @@ const MovieCard = ({ movie, onFavoriteClick, isFavorite }) => {
           className="movie-poster"
         />
       </Link>
-      <span className="favorite" onClick={() => onFavoriteClick(movie)}>
+      <span
+        className={`favorite ${!isLoggedIn ? 'disabled' : ''}`}
+        onClick={() => isLoggedIn && onFavoriteClick(movie)}
+        title={!isLoggedIn ? "Login to add favorites" : ""}
+      >
         {isFavorite ? (
           <FavoriteIcon className="favorite-icon filled" />
         ) : (

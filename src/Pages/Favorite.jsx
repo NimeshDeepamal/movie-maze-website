@@ -41,6 +41,7 @@ const FavoritesPage = ({ isLoggedIn }) => { // use prop instead of reading local
               movie={movie}
               onFavoriteClick={handleFavoriteClick}
               isFavorite={true}
+              isLoggedIn={isLoggedIn}
             />
           ))
         ) : (

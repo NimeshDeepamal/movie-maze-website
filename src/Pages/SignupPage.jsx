@@ -99,7 +99,7 @@ export default function SignupPage({ setIsLoggedIn }) {
           <button type="submit">Sign Up</button>
         </form>
         <p className="signup">
-          Already have an account? <Link to="/signup">Log in</Link>
+          Already have an account? <Link to="/login">Log in</Link>
         </p>
       </div>
     </main>
