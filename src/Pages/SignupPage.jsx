@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginPage.css'; 
+import { Link } from 'react-router-dom';
 
 export default function SignupPage({ setIsLoggedIn }) {
   const navigate = useNavigate();
@@ -98,7 +99,7 @@ export default function SignupPage({ setIsLoggedIn }) {
           <button type="submit">Sign Up</button>
         </form>
         <p className="signup">
-          Already have an account? <a href="/login">Log in</a>
+          Already have an account? <Link to="/signup">Log in</Link>
         </p>
       </div>
     </main>

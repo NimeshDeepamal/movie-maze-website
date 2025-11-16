@@ -13,26 +13,26 @@ const FavoritesPage = () => {
     setFavorites(savedFavorites);
   }, []);
 
-  // Check login status
-  const isLoggedIn = localStorage.getItem("user") || localStorage.getItem("isLoggedIn");
+  // Check login status correctly
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
   const handleFavoriteClick = (movie) => {
-  if (!isLoggedIn) {
-    navigate("/login");
-    return;
-  }
+    if (!isLoggedIn) {
+      // Redirect to login page if user is not logged in
+      navigate("/login");
+      return;
+    }
 
-  // Proceed with adding/removing favorite
-  const updatedFavorites = favorites.filter(fav => fav.id !== movie.id);
+    // Add or remove favorite
+    const updatedFavorites = favorites.filter(fav => fav.id !== movie.id);
 
-  if (updatedFavorites.length === favorites.length) {
-    updatedFavorites.push(movie); // Add if not present
-  }
+    if (updatedFavorites.length === favorites.length) {
+      updatedFavorites.push(movie); // Add if not present
+    }
 
-  setFavorites(updatedFavorites);
-  localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-};
-
+    setFavorites(updatedFavorites);
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+  };
 
   return (
     <section className="movie-list">
