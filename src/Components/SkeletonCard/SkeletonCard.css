@@ -1,0 +1,264 @@
+/* ============================================
+   SKELETON CARD STYLES
+   ============================================ */
+
+.skeleton-card {
+  position: relative;
+  width: 220px;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.skeleton-poster {
+  width: 100%;
+  aspect-ratio: 2/3;
+  background: var(--color-bg-tertiary);
+}
+
+.skeleton-content {
+  padding: var(--space-4);
+}
+
+.skeleton-title {
+  height: 20px;
+  width: 80%;
+  margin-bottom: var(--space-3);
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-meta {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.skeleton-date {
+  height: 14px;
+  width: 70px;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-rating {
+  height: 14px;
+  width: 50px;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-description {
+  height: 12px;
+  width: 100%;
+  margin-bottom: var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-description-short {
+  height: 12px;
+  width: 60%;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-favorite {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+}
+
+/* ============================================
+   SKELETON GRID
+   ============================================ */
+
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-6);
+  padding: var(--space-6);
+  justify-items: center;
+}
+
+/* ============================================
+   SKELETON DETAILS PAGE
+   ============================================ */
+
+.skeleton-details {
+  min-height: 100vh;
+}
+
+.skeleton-details-hero {
+  height: 70vh;
+  min-height: 500px;
+  background: var(--color-bg-secondary);
+  position: relative;
+}
+
+.skeleton-details-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    var(--color-bg-primary) 0%,
+    transparent 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-8);
+}
+
+.skeleton-details-content {
+  display: flex;
+  gap: var(--space-8);
+  max-width: var(--container-max);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.skeleton-details-poster {
+  width: 300px;
+  aspect-ratio: 2/3;
+  border-radius: var(--radius-xl);
+  flex-shrink: 0;
+}
+
+.skeleton-details-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-bottom: var(--space-8);
+}
+
+.skeleton-details-title {
+  height: 48px;
+  width: 60%;
+  border-radius: var(--radius-md);
+}
+
+.skeleton-details-meta {
+  height: 24px;
+  width: 200px;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-details-genres {
+  height: 32px;
+  width: 300px;
+  border-radius: var(--radius-full);
+}
+
+.skeleton-details-overview {
+  height: 16px;
+  width: 100%;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-details-overview-2 {
+  height: 16px;
+  width: 80%;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-details-actions {
+  height: 48px;
+  width: 200px;
+  border-radius: var(--radius-md);
+  margin-top: var(--space-4);
+}
+
+/* ============================================
+   SKELETON SECTIONS
+   ============================================ */
+
+.skeleton-section {
+  padding: var(--space-8) var(--space-6);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.skeleton-section-title {
+  height: 32px;
+  width: 200px;
+  margin-bottom: var(--space-6);
+  border-radius: var(--radius-md);
+}
+
+.skeleton-cast-grid {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  padding-bottom: var(--space-4);
+}
+
+.skeleton-cast-card {
+  flex-shrink: 0;
+  width: 140px;
+  text-align: center;
+}
+
+.skeleton-cast-image {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-3);
+}
+
+.skeleton-cast-name {
+  height: 16px;
+  width: 80%;
+  margin: 0 auto var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-cast-role {
+  height: 14px;
+  width: 60%;
+  margin: 0 auto;
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .skeleton-card {
+    width: 160px;
+  }
+  
+  .skeleton-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: var(--space-4);
+    padding: var(--space-4);
+  }
+  
+  .skeleton-details-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .skeleton-details-poster {
+    width: 200px;
+  }
+  
+  .skeleton-details-info {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .skeleton-details-title {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .skeleton-card {
+    width: 140px;
+  }
+  
+  .skeleton-content {
+    padding: var(--space-3);
+  }
+}

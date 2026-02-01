@@ -1,8 +1,45 @@
-h1{
-    color: var(--heading-color);
-    font-size: 50px;
-    font-weight: 600;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    text-align: center;
+/* ============================================
+   HOME PAGE - PREMIUM STYLING
+   ============================================ */
+
+.home-page {
+  min-height: 100vh;
+  background: var(--color-bg-primary);
+}
+
+.home-movies-section {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-16);
+}
+
+/* Section title styling */
+.home-movies-section h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  text-align: center;
+  margin-bottom: var(--space-8);
+  letter-spacing: -0.02em;
+}
+
+/* ============================================
+   LEGACY H1 OVERRIDE
+   ============================================ */
+
+h1 {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.02em;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .home-movies-section {
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-10);
+  }
 }

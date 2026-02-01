@@ -1,16 +1,17 @@
-import React from 'react'
-import Hero from '../Components/Hero/Hero'
+import React from 'react';
+import Hero from '../Components/Hero/Hero';
 import MovieList from '../Components/MovieList/MovieList';
-import './Home.css'
+import './Home.css';
 
 const Home = () => {
   return (
-    <div className='home'>
+    <main className="home-page">
       <Hero />
-      <h1>Movies</h1>
-      <MovieList type={"popular"} title={"Popular"}/>
-    </div>
-  )
-}
+      <section className="home-movies-section">
+        <MovieList type="popular" title="Popular Movies" />
+      </section>
+    </main>
+  );
+};
 
 export default Home;
